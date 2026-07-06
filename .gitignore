@@ -1,0 +1,39 @@
+# Environment variables (SECRETS)
+.env
+backend/.env
+frontend/.env
+
+# Training data (~10GB)
+data/
+
+# Model output duplicates
+output/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+venv/
+.venv/
+
+# Node.js
+frontend/node_modules/
+
+# Stray generated files
+test_flights.csv
+test_flights.xlsx
+test_delay_flights.csv
+test_delay_flights.xlsx
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*

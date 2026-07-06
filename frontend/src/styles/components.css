@@ -1,0 +1,341 @@
+/* ============================================================
+   Component-Specific Styles
+   ============================================================ */
+
+/* ─── Header ───────────────────────────────────────────── */
+.header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-logo {
+  font-size: 1.5rem;
+}
+
+.header-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.header-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ─── Theme Toggle ─────────────────────────────────────── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.theme-toggle-icon {
+  font-size: 1.125rem;
+}
+
+/* ─── Prediction Form ──────────────────────────────────── */
+.prediction-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .prediction-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prediction-form .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-submit-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* ─── Prediction Result ────────────────────────────────── */
+.prediction-result {
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.result-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-label--delayed {
+  color: var(--danger-color);
+}
+
+.result-label--on-time {
+  color: var(--success-color);
+}
+
+.result-probability {
+  font-size: 2rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.result-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* ─── Explainability Panel ─────────────────────────────── */
+.explainability-panel {
+  margin-top: 1.5rem;
+}
+
+.explainability-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ─── Historical Route Stats ───────────────────────────── */
+.route-stats {
+  position: sticky;
+  top: 6rem;
+}
+
+.route-stats-header {
+  margin-bottom: 1rem;
+}
+
+.route-stats-route {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.route-stats-detail {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Airline Comparison ───────────────────────────────── */
+.comparison-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.comparison-card {
+  padding: 1rem 1.25rem;
+}
+
+.comparison-airline {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.comparison-prob {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Batch Upload ─────────────────────────────────────── */
+.batch-status {
+  margin-top: 1.5rem;
+}
+
+.batch-progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-tertiary);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.batch-progress-fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.batch-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.batch-stat {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--bg-tertiary);
+  border-radius: 8px;
+}
+
+.batch-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.batch-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Model Info ───────────────────────────────────────── */
+.model-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 1.25rem;
+  background-color: var(--bg-tertiary);
+  border-radius: 8px;
+}
+
+.metric-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+/* ─── Feature Importance Bar ───────────────────────────── */
+.feature-bar-container {
+  margin: 0.5rem 0;
+}
+
+.feature-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  margin-bottom: 0.25rem;
+}
+
+.feature-bar-name {
+  font-weight: 500;
+}
+
+.feature-bar-score {
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.feature-bar-track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--bg-tertiary);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.feature-bar-fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}

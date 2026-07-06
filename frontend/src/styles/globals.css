@@ -1,0 +1,538 @@
+/* ============================================================
+   US Flight Delay Predictor — Global Styles
+   CSS Variables for Light/Dark themes, base component styles
+   ============================================================ */
+
+/* ─── CSS Custom Properties (Light Theme Default) ─────── */
+:root {
+  /* Background */
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f3f4f6;
+  --bg-gradient-start: #ffffff;
+  --bg-gradient-end: #f0f4ff;
+  
+  /* Text */
+  --text-primary: #0f1115;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  
+  /* Accent & Status */
+  --accent-color: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-light: #dbeafe;
+  --success-color: #10b981;
+  --success-bg: #d1fae5;
+  --warning-color: #f59e0b;
+  --warning-bg: #fef3c7;
+  --danger-color: #ef4444;
+  --danger-bg: #fee2e2;
+  
+  /* Borders & Shadows */
+  --border-color: #e5e7eb;
+  --border-hover: #d1d5db;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  /* Input */
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --input-focus-border: #2563eb;
+  --input-focus-ring: rgba(37, 99, 235, 0.1);
+  
+  /* Sidebar */
+  --sidebar-bg: #f8fafc;
+  
+  /* Probability bar */
+  --bar-low: #10b981;
+  --bar-medium: #f59e0b;
+  --bar-high: #ef4444;
+}
+
+/* ─── Dark Theme ───────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg-primary: #0f1115;
+  --bg-secondary: #1a1f2e;
+  --bg-tertiary: #252b3b;
+  --bg-gradient-start: #1a1f2e;
+  --bg-gradient-end: #0f1115;
+  
+  --text-primary: #f5f5f5;
+  --text-secondary: #a0aec0;
+  --text-muted: #718096;
+  
+  --accent-color: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-light: #1e3a5f;
+  --success-color: #34d399;
+  --success-bg: #064e3b;
+  --warning-color: #fbbf24;
+  --warning-bg: #78350f;
+  --danger-color: #f87171;
+  --danger-bg: #7f1d1d;
+  
+  --border-color: #374151;
+  --border-hover: #4b5563;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  
+  --input-bg: #252b3b;
+  --input-border: #4b5563;
+  --input-focus-border: #3b82f6;
+  --input-focus-ring: rgba(59, 130, 246, 0.15);
+  
+  --sidebar-bg: #151a25;
+  
+  --bar-low: #34d399;
+  --bar-medium: #fbbf24;
+  --bar-high: #f87171;
+}
+
+/* ─── Reset & Base ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── App Container ────────────────────────────────────── */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
+  flex: 1;
+}
+
+/* ─── Layout ───────────────────────────────────────────── */
+.predict-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .predict-layout {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.predict-sidebar {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+}
+
+/* ─── Cards ────────────────────────────────────────────── */
+.card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ─── Buttons ──────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--border-color);
+}
+
+/* ─── Form Elements ────────────────────────────────────── */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px var(--input-focus-ring);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ─── Status Badges ────────────────────────────────────── */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.status-badge--delayed {
+  color: var(--danger-color);
+}
+
+.status-badge--on-time {
+  color: var(--success-color);
+}
+
+.status-badge--uncertain {
+  color: var(--warning-color);
+}
+
+/* ─── Error Banner ─────────────────────────────────────── */
+.error-banner {
+  background-color: var(--danger-bg);
+  color: var(--danger-color);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* ─── Scope Disclaimer ─────────────────────────────────── */
+.scope-disclaimer {
+  background-color: var(--warning-bg);
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* ─── Probability Bar ──────────────────────────────────── */
+.probability-bar-container {
+  margin: 1rem 0;
+}
+
+.probability-bar-track {
+  width: 100%;
+  height: 12px;
+  background-color: var(--bg-tertiary);
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.probability-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s;
+}
+
+.probability-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ─── Factor List ──────────────────────────────────────── */
+.factor-list {
+  list-style: none;
+  padding: 0;
+}
+
+.factor-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.factor-item:last-child {
+  border-bottom: none;
+}
+
+.factor-name {
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.factor-direction {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.factor-direction--increases {
+  background-color: var(--danger-bg);
+  color: var(--danger-color);
+}
+
+.factor-direction--decreases {
+  background-color: var(--success-bg);
+  color: var(--success-color);
+}
+
+.factor-direction--influences {
+  background-color: var(--warning-bg);
+  color: var(--warning-color);
+}
+
+/* ─── Tabs ─────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.tab {
+  padding: 0.75rem 1.25rem;
+  background: none;
+  border: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: var(--text-primary);
+}
+
+.tab--active {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* ─── Loading Spinner ──────────────────────────────────── */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* ─── Grid Utilities ───────────────────────────────────── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Table ────────────────────────────────────────────── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 2px solid var(--border-color);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.data-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ─── File Upload ──────────────────────────────────────── */
+.file-upload-zone {
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.file-upload-zone:hover {
+  border-color: var(--accent-color);
+  background-color: var(--accent-light);
+}
+
+.file-upload-zone--active {
+  border-color: var(--accent-color);
+  background-color: var(--accent-light);
+}
+
+.file-upload-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.file-upload-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+/* ─── Scrollbar Styling ────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ─── Transitions ──────────────────────────────────────── */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Component Styles Import ─────────────────────────── */
+@import './components.css';
